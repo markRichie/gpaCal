@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>GPA cal</title>
+<style>
+.cntr{
+  text-align:center;
+  width:100%;
+  padding-left: 38%;
+}
+#s1{
+  width:25%;
+  border:2px #5499c7   solid;
+  text-align:center;
+
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 40px;
+  padding-left: 80px;
+}
+
+</style>
+<script>
+function grd(x){
+  switch(x){
+    case '1':return 4.0;
+            break;
+    case '2':return 4.0;
+            break;
+    case '3':return 3.7;
+                    break;
+    case '4':return 3.3;
+                    break;
+    case '5':return 3.0;
+                    break;
+    case '6':return 2.7;
+                    break;
+    case '7':return 2.3;
+                    break;
+    case '8':return 2.0;
+                    break;
+    case '9':return 1.7;
+                    break;
+    case '10':return 1.3;
+                    break;
+    default:return 0;
+            break;
+  }
+}
+function crd(y){
+  switch(y){
+    case "i":return 2;
+            break;
+    case "o":return 2;
+            break;
+    case "d":return 3;
+                    break;
+    case "q":return 2;
+                    break;
+    case "c":return 3;
+                    break;
+    case "c2":return 2;
+                    break;
+    case "sd":return 3;
+                    break;
+    case "cshrp":return 2;
+                    break;
+    case "ca":return 3;
+                    break;
+    case "sw":return 3;
+                    break;
+    case "jv":return 2;
+                    break;
+    case "it":return 3;
+                    break;
+    case "pro":return 5;
+                    break;
+    default:return 0;
+            break;
+}
+}
+function mul(c,d){
+  var t=c*d;
+  return t;
+}
+function a(){
+  Array[1]=document.sub.ics.value;
+  Array[2]="i";
+  Array[3]=document.sub.c.value;
+  Array[4]="o";
+  Array[5]=document.sub.dbms.value;
+  Array[6]="d";
+  Array[7]=document.sub.qtc.value;
+  Array[8]="q";
+  Array[9]=document.sub.ct.value;
+  Array[10]="c";
+  Array[11]=document.sub.oc.value;
+  Array[12]="c2";
+  Array[13]=document.sub.sad.value;
+  Array[14]="sd";
+  Array[15]=document.sub.cs.value;
+  Array[16]="cshrp";
+  Array[17]=document.sub.ca.value;
+  Array[18]="ca";
+  Array[19]=document.sub.sw.value;
+  Array[20]="sw";
+  Array[21]=document.sub.jv.value;
+  Array[22]="jv";
+  Array[23]=document.sub.it.value;
+  Array[24]="it";
+  Array[25]=document.sub.pro.value;
+  Array[26]="pro";
+
+  var j=1;
+  var tot=0;
+  var avg=0;
+  var crdt=0;
+  var s=0;
+  for (var i = 2; i <27; i=i+2) {
+    if(Array[j]!=0){
+      var t=(mul(grd(Array[j]),crd(Array[i])));
+        j=j+2;
+    }
+    else{
+            j=j+2;
+            s=s+1;
+            continue;
+    }
+
+    tot=tot+t;
+    crdt=crdt+crd(Array[i]);
+  }
+  avg=tot/crdt;
+  if(s>0){
+  alert("GPA so far : "+avg);
+  }
+  else{
+  alert("GPA : "+avg);
+  }
+
+
+
+
+}
+</script>
+</head>
+<body>
+<form name="sub">
+<h1><center>GPA cal</center></h2>
+<h2><center><font color="#5d6d7e">select the grade</font></center></h2>
+<div class="cntr">
+    <div id="s1">
+      <h3>semester 1</h3>
+    Intro to cs
+    <select id="ics">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option>
+    </select><br>
+    QTC<select id="qtc">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    c<select id="c">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    DBMS<select id="dbms">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    </div><br>
+    <div id="s1">
+    <h3>semester 2</h3>
+    CT<select id="ct">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    C++<select id="oc">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    SAD<select id="sad">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    C#<select id="cs">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    </div><br>
+    <div id="s1">
+    <h3>semester 3</h3>
+    CA<select id="ca">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    SSW<select id="sw">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    JAVA<select id="jv">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    IT<select id="it">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    project<select id="pro">
+    <option value=0> </option>
+    <option value=1>A+</option>
+    <option value=2>A</option>
+    <option value=3>A-</option>
+    <option value=4>B+</option>
+    <option value=5>B</option>
+    <option value=6>B-</option>
+    <option value=7>C+</option>
+    <option value=8>C</option>
+    <option value=9>C-</option>
+    <option value=10>D+</option></select><br>
+    </div><br>
+    <div id="s1">
+    <input type="button" name="cal" value="Calculate" onclick="a()">
+    </div>
+    Note : built according to guide book info
+</div>
+</form>
+
+
+</body>
+</html>
